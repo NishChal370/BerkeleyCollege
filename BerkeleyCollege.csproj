@@ -101,6 +101,8 @@
     <Content Include="Style\main.css" />
     <Content Include="Web.config" />
     <Content Include="pages\Student.aspx" />
+    <Content Include="pages\Department.aspx" />
+    <Content Include="pages\Module.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -117,6 +119,20 @@
     </Compile>
     <Compile Include="pages\Student.aspx.designer.cs">
       <DependentUpon>Student.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pages\Department.aspx.cs">
+      <DependentUpon>Department.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\Department.aspx.designer.cs">
+      <DependentUpon>Department.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pages\Module.aspx.cs">
+      <DependentUpon>Module.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\Module.aspx.designer.cs">
+      <DependentUpon>Module.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
