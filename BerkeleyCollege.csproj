@@ -103,6 +103,8 @@
     <Content Include="pages\Student.aspx" />
     <Content Include="pages\Department.aspx" />
     <Content Include="pages\Module.aspx" />
+    <Content Include="pages\Home.aspx" />
+    <Content Include="pages\Teacher.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -133,6 +135,20 @@
     </Compile>
     <Compile Include="pages\Module.aspx.designer.cs">
       <DependentUpon>Module.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pages\Home.aspx.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\Home.aspx.designer.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pages\Teacher.aspx.cs">
+      <DependentUpon>Teacher.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\Teacher.aspx.designer.cs">
+      <DependentUpon>Teacher.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
