@@ -1,10 +1,6 @@
 ﻿using Oracle.ManagedDataAccess.Client;
 using System;
-using System.Collections.Generic;
 using System.Configuration;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
 using System.Web.UI.WebControls;
 
 namespace BerkeleyCollege
@@ -15,59 +11,51 @@ namespace BerkeleyCollege
         private OracleConnection oracleConnection;
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            GridView1.Columns[6].Visible = false;
         }
 
-        protected void saveSalary(object sender, GridViewUpdateEventArgs e)
-        {
-            GridViewRow row = GridView1.Rows[e.RowIndex];
-            string teacher_Id = (row.Cells[1].Controls[0].FindControl("Label1") as Label).Text;
-            string salary = (row.Cells[6].Controls[0].FindControl("TextBox1") as TextBox).Text;
 
+        //Save new teacher event
+        protected void InsertTeacherButton_Click(Object sender, EventArgs e)
+        {
+            System.Diagnostics.Debug.WriteLine("INSIDE");
+            Random random = new Random();
             oracleConnection = new OracleConnection(connectionString);
             oracleConnection.Open();
 
-            OracleCommand oracleCommand = new OracleCommand($"UPDATE TEACHER SET SALARY = '{salary}' WHERE TEACHER_ID = '{teacher_Id}'", oracleConnection);
-            oracleCommand.ExecuteNonQuery();
 
-            GridView1.DataBind();
-            oracleConnection.Close();
-        }
-
-        protected void saveTeacher(object sender, FormViewInsertedEventArgs e)
-        {
-            oracleConnection = new OracleConnection(connectionString);
-            oracleConnection.Open();
-
-            
-            string person_id = (FormView1.FindControl("PERSON_IDTextBox") as TextBox).Text;
+            string personId = (FormView1.FindControl("PERSON_IDTextBox") as TextBox).Text;
+            string name = (FormView1.FindControl("NAMETextBox") as TextBox).Text;
+            string contact = (FormView1.FindControl("CONTACTTextBox") as TextBox).Text;
+            string dateOfBirth = (FormView1.FindControl("DATE_OF_BIRTHTextBox") as TextBox).Text;
+            string email = (FormView1.FindControl("EMAILTextBox") as TextBox).Text;
             string salary = (FormView1.FindControl("SALARYTextBox") as TextBox).Text;
+            string address = (FormView1.FindControl("ADDRESSTEXTBOX") as TextBox).Text;
+            string addressId = "AD" + random.Next(12, 100);
 
-            OracleCommand oracleCommand = new OracleCommand($"INSERT INTO teacher VALUES('{person_id}','{salary}')", oracleConnection);
-            oracleCommand.ExecuteNonQuery();
+
+            OracleCommand oracleSavePersonCommand = new OracleCommand(
+                $"INSERT INTO PERSON (PERSON_ID, NAME, CONTACT, DATE_OF_BIRTH, EMAIL) " +
+                $"VALUES('{personId}', '{name}', '{contact}', TO_DATE('{dateOfBirth}','YYYY-MM-DD'), '{email}')", oracleConnection);
+            oracleSavePersonCommand.ExecuteNonQuery();
+
+
+            OracleCommand oracleSaveSalaryCommand = new OracleCommand($"INSERT INTO teacher VALUES('{personId}','{salary}')", oracleConnection);
+            oracleSaveSalaryCommand.ExecuteNonQuery();
+
+            OracleCommand oracleAddressCommand = new OracleCommand($"INSERT INTO address (ADDRESS_ID, ADDRESS) VALUES ('{addressId}', '{address}')", oracleConnection);
+            oracleAddressCommand.ExecuteNonQuery();
+
+            OracleCommand oraclePersonAddressCommand = new OracleCommand($"INSERT INTO person_address (PERSON_ID, ADDRESS_ID) VALUES ('{personId}', '{addressId}')", oracleConnection);
+            oraclePersonAddressCommand.ExecuteNonQuery();
 
             GridView1.DataBind();
             oracleConnection.Close();
+            FormView1.ChangeMode(FormViewMode.ReadOnly);
         }
 
-        protected void GridView1_RowDeleting(object sender, GridViewDeleteEventArgs e)
-        {
-            System.Diagnostics.Debug.WriteLine("CHeck");
-            //    oracleConnection = new OracleConnection(connectionString);
-            //    oracleConnection.Open();
-            //    System.Diagnostics.Debug.WriteLine("CHeck");
 
-            //    GridViewRow row = GridView1.Rows[e.RowIndex];
-            //    string teacher_Id = (row.Cells[1].Controls[0].FindControl("PERSON_IDLabel") as Label).Text;
-            //    System.Diagnostics.Debug.WriteLine(teacher_Id);
-
-            //    OracleCommand oracleCommand = new OracleCommand($"DELETE FROM person WHERE PERSON_ID = '{teacher_Id}'", oracleConnection);
-            //    oracleCommand.ExecuteNonQuery();
-
-            //    GridView1.DataBind();
-            //    oracleConnection.Close();
-        }
-
+        // Grid view row delete event
         protected void DeleteButton_Click(Object sender, EventArgs e)
         {
             LinkButton btn = (LinkButton)sender;
@@ -77,13 +65,74 @@ namespace BerkeleyCollege
             oracleConnection.Open();
 
             string teacher_Id = (gvr.FindControl("LabelPersonId") as Label).Text;
+            string address_Id = (gvr.FindControl("LabelAddressId") as Label).Text;
 
-            OracleCommand oracleCommand = new OracleCommand($"DELETE FROM person WHERE PERSON_ID = '{teacher_Id}'", oracleConnection);
-            oracleCommand.ExecuteNonQuery();
+            OracleCommand oracleDeletePersonCommand = new OracleCommand($"DELETE FROM person WHERE PERSON_ID = '{teacher_Id}'", oracleConnection);
+            oracleDeletePersonCommand.ExecuteNonQuery();
+
+            OracleCommand oracleAddressCommand = new OracleCommand($"DELETE FROM address WHERE ADDRESS_ID = '{address_Id}'", oracleConnection);
+            oracleAddressCommand.ExecuteNonQuery();
 
             GridView1.DataBind();
             oracleConnection.Close();
+        }
+
+
+
+        // Grid view row update event
+        protected void UpdateButton_Click(Object sender, EventArgs e)
+        {
+            GridView1.Columns[6].Visible = true;//show address ID
+            System.Diagnostics.Debug.WriteLine("Update");
+
+            LinkButton btn = (LinkButton)sender;
+            GridViewRow gvr = (GridViewRow)btn.NamingContainer;
+
+            oracleConnection = new OracleConnection(connectionString);
+            oracleConnection.Open();
+
+            string teacher_Id = (gvr.FindControl("LabelPersonId") as Label).Text;
+            string name = (gvr.FindControl("TextBoxNAME") as TextBox).Text;
+            string contact = (gvr.FindControl("TextBoxCONTACT") as TextBox).Text;
+            string dateOfBirth = (gvr.FindControl("TextBoxDATE_OF_BIRTH") as TextBox).Text;
+            DateTime dateOfBirthTemp = Convert.ToDateTime(dateOfBirth);
+            dateOfBirth = (dateOfBirthTemp.Year).ToString() + '-' + (dateOfBirthTemp.Month).ToString() + '-' + (dateOfBirthTemp.Day).ToString();
+            string email = (gvr.FindControl("TextBoxEMAIL") as TextBox).Text;
+            string salary = (gvr.FindControl("TextBoxSalary") as TextBox).Text;
+            string addressId = (gvr.FindControl("LabelAddressId") as Label).Text;
+            string address = (gvr.FindControl("TextBoxAddress") as TextBox).Text;
+
+
+            OracleCommand oracleUpdatePersonCommand = new OracleCommand(
+                $"UPDATE PERSON SET NAME = '{name}', CONTACT = '{contact}', DATE_OF_BIRTH = TO_DATE('{dateOfBirth}','YYYY-MM-DD')," +
+                $" EMAIL = '{email}' WHERE PERSON_ID = '{teacher_Id}'", oracleConnection);
+            oracleUpdatePersonCommand.ExecuteNonQuery();
+
+
+            OracleCommand oracleTeacherSalaryCommand = new OracleCommand($"UPDATE TEACHER SET SALARY = '{salary}' WHERE TEACHER_ID = '{teacher_Id}'", oracleConnection);
+            oracleTeacherSalaryCommand.ExecuteNonQuery();
+
+            OracleCommand oracleAddressUpdateCommand = new OracleCommand($"UPDATE ADDRESS SET ADDRESS = '{address}' WHERE ADDRESS_ID = '{addressId}'", oracleConnection);
+            oracleAddressUpdateCommand.ExecuteNonQuery();
+
+            GridView1.DataBind();
+            oracleConnection.Close();
+            GridView1.EditIndex = -1;
+            GridView1.Columns[6].Visible = false;//hide address ID
 
         }
+
+        protected void AddStudentAsTeacher_Click(Object sender, EventArgs e)
+        {
+            System.Diagnostics.Debug.WriteLine("ADD");
+
+            //string studentId = (FormView1.FindControl("DropDownListSTUDENT") as DropDownList);
+            //string studentId = (FormView1.FindControl("DropDownListSTUDENT") as DropDownList).SelectedValue.ToString();
+            //string salary = (FormView1.FindControl("TextBoxSalary") as TextBox).Text;
+            //var statVal = ((DropDownList)FormView1.FindControl("DropDownListSTUDENT")).SelectedValue.ToString();
+            //System.Diagnostics.Debug.WriteLine(statVal);
+            //System.Diagnostics.Debug.WriteLine(salary);
+        }
+
     }
 }
