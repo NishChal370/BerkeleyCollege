@@ -149,12 +149,6 @@
             </asp:FormView>
 
 
-
-
-
-
-
-
              <asp:FormView ID="FormView2" runat="server" DataSourceID="SqlDataSource2">
                  <InsertItemTemplate>
                      NAME:
@@ -176,27 +170,8 @@
                 >
              </asp:SqlDataSource>
 
-
-
-
-
-
-
-
         </div>
     </section>
 
 
-    
 </asp:Content>
-
-
-<%--&nbsp;<asp:LinkButton ID="LinkButton3" runat="server" CausesValidation="False" CommandName="New" Text="Assign new teacher" />
-                         <br />
-                         <asp:Label ID="Label1" runat="server" Text="Assign student as teacher:"></asp:Label>
-                         <asp:DropDownList ID="DropDownListStudent" runat="server" DataSourceID="SqlDataSource2" DataTextField="NAME" DataValueField="PERSON_ID"></asp:DropDownList>
-                         &nbsp;<asp:LinkButton ID="NewButton" runat="server" CausesValidation="False" CommandName="New" Text="Assign" />
-                     </ItemTemplate>
-                 </asp:FormView>
-                 <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" ProviderName="<%$ ConnectionStrings:ConnectionString.ProviderName %>" SelectCommand="SELECT PERSON.PERSON_ID , CONCAT(CONCAT(PERSON.PERSON_ID,' '),PERSON.NAME)&quot;NAME&quot; FROM PERSON JOIN STUDENT ON PERSON.PERSON_ID = STUDENT.STUDENT_ID"></asp:SqlDataSource>
-                <br/>--%>
