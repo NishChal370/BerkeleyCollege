@@ -75,6 +75,7 @@
     <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
     </Reference>
+    <Reference Include="System.Web.DataVisualization" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -106,6 +107,10 @@
     <Content Include="pages\Home.aspx" />
     <Content Include="pages\Teacher.aspx" />
     <Content Include="pages\StudentFinance.aspx" />
+    <Content Include="pages\StudentResult.aspx" />
+    <Content Include="pages\StudentAttendance.aspx" />
+    <Content Include="pages\StudentModule.aspx" />
+    <Content Include="pages\TeacherModule.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -157,6 +162,34 @@
     </Compile>
     <Compile Include="pages\StudentFinance.aspx.designer.cs">
       <DependentUpon>StudentFinance.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pages\StudentResult.aspx.cs">
+      <DependentUpon>StudentResult.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\StudentResult.aspx.designer.cs">
+      <DependentUpon>StudentResult.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pages\StudentAttendance.aspx.cs">
+      <DependentUpon>StudentAttendance.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\StudentAttendance.aspx.designer.cs">
+      <DependentUpon>StudentAttendance.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pages\StudentModule.aspx.cs">
+      <DependentUpon>StudentModule.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\StudentModule.aspx.designer.cs">
+      <DependentUpon>StudentModule.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pages\TeacherModule.aspx.cs">
+      <DependentUpon>TeacherModule.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\TeacherModule.aspx.designer.cs">
+      <DependentUpon>TeacherModule.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
