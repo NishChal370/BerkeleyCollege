@@ -72,7 +72,7 @@
 WHERE COURSEWORK.TEACHER.TEACHER_ID = :TEACHER_ID">
 
                  <SelectParameters>
-                        <asp:ControlParameter ControlID="DropDownList1" Name="TEACHER_ID" PropertyName="SelectedValue" Type="String" />
+                        <asp:ControlParameter ControlID="DropDownList1" Name="TEACHER_ID"   PropertyName="SelectedValue" Type="String" />
                     </SelectParameters>
              </asp:SqlDataSource>
 

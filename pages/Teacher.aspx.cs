@@ -125,14 +125,23 @@ namespace BerkeleyCollege
         protected void AddStudentAsTeacher_Click(Object sender, EventArgs e)
         {
             System.Diagnostics.Debug.WriteLine("ADD");
+            oracleConnection = new OracleConnection(connectionString);
+            oracleConnection.Open();
 
-            //string studentId = (FormView1.FindControl("DropDownListSTUDENT") as DropDownList);
-            //string studentId = (FormView1.FindControl("DropDownListSTUDENT") as DropDownList).SelectedValue.ToString();
-            //string salary = (FormView1.FindControl("TextBoxSalary") as TextBox).Text;
-            //var statVal = ((DropDownList)FormView1.FindControl("DropDownListSTUDENT")).SelectedValue.ToString();
-            //System.Diagnostics.Debug.WriteLine(statVal);
-            //System.Diagnostics.Debug.WriteLine(salary);
+            string studentId = (FormView2.FindControl("StudentDropDown") as DropDownList).SelectedValue;
+            string salary = (FormView2.FindControl("TextBoxSalary") as TextBox).Text;
+
+            OracleCommand oracleAddressUpdateCommand = new OracleCommand($"INSERT INTO TEACHER VALUES('{studentId}', '{salary}')", oracleConnection);
+            oracleAddressUpdateCommand.ExecuteNonQuery();
+
+            GridView1.DataBind();
+            oracleConnection.Close();
+            FormView2.ChangeMode(FormViewMode.ReadOnly);
         }
 
+        protected void DropDownListSTUDENT_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

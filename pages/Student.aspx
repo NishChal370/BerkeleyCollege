@@ -14,7 +14,7 @@
                      <AlternatingRowStyle BackColor="White" />
                      <Columns>
 
-                         <asp:TemplateField HeaderText="PERSON_ID" SortExpression="PERSON_ID">
+                         <asp:TemplateField HeaderText="STUDENT_ID" SortExpression="PERSON_ID">
                              <EditItemTemplate>
                                  <asp:Label ID="LabelPERSON_ID" runat="server" Text='<%# Bind("PERSON_ID") %>'></asp:Label>
                              </EditItemTemplate>
@@ -97,8 +97,6 @@
 
 
                 <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" 
-                    DeleteCommand="DELETE FROM &quot;PERSON&quot; WHERE &quot;PERSON_ID&quot; = ?" 
-                    InsertCommand="INSERT INTO &quot;PERSON&quot; (&quot;PERSON_ID&quot;, &quot;NAME&quot;, &quot;CONTACT&quot;, &quot;DATE_OF_BIRTH&quot;, &quot;EMAIL&quot;) VALUES (?, ?, ?, ?, ?)" 
                     ProviderName="<%$ ConnectionStrings:ConnectionString.ProviderName %>" 
                     SelectCommand="SELECT PERSON.*,  ADDRESS.* FROM PERSON JOIN STUDENT ON PERSON.PERSON_ID = STUDENT.STUDENT_ID JOIN PERSON_ADDRESS ON PERSON.PERSON_ID = PERSON_ADDRESS.PERSON_ID JOIN ADDRESS ON ADDRESS.ADDRESS_ID = PERSON_ADDRESS.ADDRESS_ID" 
                 >
@@ -113,34 +111,38 @@
                         <asp:Parameter Name="EMAIL" Type="String" />
                     </InsertParameters>
                 </asp:SqlDataSource>
-                 <asp:FormView ID="FormView1" runat="server" DataSourceID="SqlDataSource1">
-                     <InsertItemTemplate>
-                         PERSON_ID:
-                         <asp:TextBox ID="PERSON_IDTextBox" runat="server" Text='<%# Bind("PERSON_ID") %>' />
-                         <br />
-                         NAME:
-                         <asp:TextBox ID="NAMETextBox" runat="server" Text='<%# Bind("NAME") %>' />
-                         <br />
-                         CONTACT:
-                         <asp:TextBox ID="CONTACTTextBox" runat="server" Text='<%# Bind("CONTACT") %>' />
-                         <br />
-                         DATE_OF_BIRTH:
-                         <asp:TextBox ID="DATE_OF_BIRTHTextBox" runat="server" Text='<%# Bind("DATE_OF_BIRTH") %>' />
-                         <br />
-                         EMAIL:
-                         <asp:TextBox ID="EMAILTextBox" runat="server" Text='<%# Bind("EMAIL") %>' />
-                         <br />
-                         ADDRESS:
-                         <asp:TextBox ID="ADDRESSTextBox" runat="server" Text='<%# Bind("ADDRESS") %>' />
-                         <br />
 
-                         <asp:LinkButton ID="InsertButton" runat="server" CausesValidation="True" onClick="InsertButton_Click" Text="Insert" />
-                         &nbsp;<asp:LinkButton ID="InsertCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" />
-                     </InsertItemTemplate>
-                     <ItemTemplate>
-                         &nbsp;<asp:LinkButton ID="LinkButton3" runat="server" CausesValidation="False" CommandName="New" Text="New" />
-                     </ItemTemplate>
-                 </asp:FormView>
+
+                 <section class="text-start d-flex">
+                     <asp:Label ID="Label1" class="fw-bold" runat="server" Text="Add Student: "></asp:Label>
+                     <asp:FormView ID="FormView1" runat="server" DataSourceID="SqlDataSource1">
+                         <InsertItemTemplate>
+                             PERSON_ID:
+                             <asp:TextBox ID="PERSON_IDTextBox" runat="server" Text='<%# Bind("PERSON_ID") %>' />
+                             <br />
+                             NAME:
+                             <asp:TextBox ID="NAMETextBox" runat="server" Text='<%# Bind("NAME") %>' />
+                             <br />
+                             CONTACT:
+                             <asp:TextBox ID="CONTACTTextBox" runat="server" Text='<%# Bind("CONTACT") %>' />
+                             <br />
+                             DATE_OF_BIRTH:
+                             <asp:TextBox ID="DATE_OF_BIRTHTextBox" type="date" runat="server" Text='<%# Bind("DATE_OF_BIRTH") %>' />
+                             <br />
+                             EMAIL:
+                             <asp:TextBox ID="EMAILTextBox" runat="server" Text='<%# Bind("EMAIL") %>' />
+                             <br />
+                             ADDRESS:
+                             <asp:TextBox ID="ADDRESSTextBox" runat="server" Text='<%# Bind("ADDRESS") %>' />
+                             <br />
+                             <asp:LinkButton ID="InsertButton" runat="server" CausesValidation="True" onClick="InsertButton_Click" Text="Insert" />
+                             &nbsp;<asp:LinkButton ID="InsertCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" />
+                         </InsertItemTemplate>
+                         <ItemTemplate>
+                             &nbsp;<asp:LinkButton ID="LinkButton3" runat="server" CausesValidation="False" CommandName="New" Text="New" />
+                         </ItemTemplate>
+                     </asp:FormView>
+                 </section>
                 <br/>
 
 
@@ -148,3 +150,7 @@
     </section>
     
 </asp:Content>
+
+
+       <%--             DeleteCommand="DELETE FROM &quot;PERSON&quot; WHERE &quot;PERSON_ID&quot; = ?" 
+                    InsertCommand="INSERT INTO &quot;PERSON&quot; (&quot;PERSON_ID&quot;, &quot;NAME&quot;, &quot;CONTACT&quot;, &quot;DATE_OF_BIRTH&quot;, &quot;EMAIL&quot;) VALUES (?, ?, ?, ?, ?)" --%>
