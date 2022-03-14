@@ -54,13 +54,13 @@
              <asp:FormView ID="FormView1" runat="server" DataSourceID="SqlDataSource1" DataKeyNames="MODULE_CODE">
                  <InsertItemTemplate>
                      MODULE_CODE:
-                     <asp:TextBox ID="MODULE_CODETextBox" runat="server" Text='<%# Bind("MODULE_CODE") %>' />
+                     <asp:TextBox style="margin-left:0.3rem; margin-bottom:0.3rem" ID="MODULE_CODETextBox" runat="server" Text='<%# Bind("MODULE_CODE") %>' />
                      <br />
                      MODULE_NAME:
-                     <asp:TextBox ID="MODULE_NAMETextBox" runat="server" Text='<%# Bind("MODULE_NAME") %>' />
+                     <asp:TextBox style="margin-bottom:0.3rem;" ID="MODULE_NAMETextBox" runat="server" Text='<%# Bind("MODULE_NAME") %>' />
                      <br />
                      CREDIT_HOURS:
-                     <asp:TextBox ID="CREDIT_HOURSTextBox" runat="server" Text='<%# Bind("CREDIT_HOURS") %>' />
+                     <asp:TextBox style="margin-left:0.3rem; margin-bottom:0.3rem;" ID="CREDIT_HOURSTextBox" runat="server" Text='<%# Bind("CREDIT_HOURS") %>' />
                      <br />
                      <asp:LinkButton ID="InsertButton" runat="server" CausesValidation="True" CommandName="Insert" Text="Insert" />
                      &nbsp;<asp:LinkButton ID="InsertCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" />

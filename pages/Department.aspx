@@ -55,9 +55,11 @@
              </asp:SqlDataSource>
 
              <asp:FormView ID="FormView1" runat="server" DataKeyNames="DEPARTMENT_ID" DataSourceID="SqlDataSource1">
+                 
                  <InsertItemTemplate>
+                     <br />
                      DEPARTMENT_ID:
-                     <asp:TextBox ID="DEPARTMENT_IDTextBox" runat="server" Text='<%# Bind("DEPARTMENT_ID") %>' />
+                     <asp:TextBox ID="DEPARTMENT_IDTextBox" style="margin-bottom:0.3rem; margin-left:1.8rem;"  runat="server" Text='<%# Bind("DEPARTMENT_ID") %>' />
                      <br />
                      DEPARTMENT_NAME:
                      <asp:TextBox ID="DEPARTMENT_NAMETextBox" runat="server" Text='<%# Bind("DEPARTMENT_NAME") %>' />

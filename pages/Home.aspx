@@ -146,6 +146,13 @@
                 </asp:Chart>
                 <asp:SqlDataSource ID="SqlDataSource4" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" ProviderName="<%$ ConnectionStrings:ConnectionString.ProviderName %>" SelectCommand="select address.address, Count(address.address)&quot;Total Student&quot; from person join student on person.person_id = student.student_id inner join person_address on person.person_id =  person_address.person_id inner join address on address.address_id = person_address.address_id group by address.address"></asp:SqlDataSource>
                 <asp:Label ID="Label4" runat="server" Text="No. of Student in different address" Font-Bold="True" Font-Italic="True" Font-Size="Large"></asp:Label>
+            
+            
+            
+                <br />
+            
+            
+            
             </section>
         </div>
     </div>

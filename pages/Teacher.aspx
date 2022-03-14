@@ -121,25 +121,25 @@
                  <asp:FormView ID="FormView1" runat="server" DataSourceID="SqlDataSource1">
                     <InsertItemTemplate>
                         PERSON_ID:
-                        <asp:TextBox ID="PERSON_IDTextBox" runat="server" Text='<%# Bind("PERSON_ID") %>' />
+                        <asp:TextBox ID="PERSON_IDTextBox" style="margin-bottom:0.3rem; margin-left:1.9rem;" runat="server" Text='<%# Bind("PERSON_ID") %>' />
                         <br />
                         NAME:
-                        <asp:TextBox ID="NAMETextBox" runat="server" Text='<%# Bind("NAME") %>' />
+                        <asp:TextBox ID="NAMETextBox" style="margin-bottom:0.3rem; margin-left:4.1rem;" runat="server" Text='<%# Bind("NAME") %>' />
                         <br />
                         CONTACT:
-                        <asp:TextBox ID="CONTACTTextBox" runat="server" Text='<%# Bind("CONTACT") %>' />
+                        <asp:TextBox ID="CONTACTTextBox" style="margin-bottom:0.3rem; margin-left:2.6rem;" runat="server" Text='<%# Bind("CONTACT") %>' />
                         <br />
                         DATE_OF_BIRTH:
-                        <asp:TextBox ID="DATE_OF_BIRTHTextBox" type="date" runat="server" Text='<%# Bind("DATE_OF_BIRTH") %>' />
+                        <asp:TextBox ID="DATE_OF_BIRTHTextBox" style="margin-bottom:0.3rem;" type="date" runat="server" Text='<%# Bind("DATE_OF_BIRTH") %>' />
                         <br />
                         EMAIL:
-                        <asp:TextBox ID="EMAILTextBox" runat="server" Text='<%# Bind("EMAIL") %>' />
+                        <asp:TextBox ID="EMAILTextBox" style="margin-bottom:0.3rem; margin-left:4.1rem;" runat="server" Text='<%# Bind("EMAIL") %>' />
                         <br />
                         SALARY:
-                        <asp:TextBox ID="SALARYTextBox" runat="server" Text='<%#Eval("SALARY") %>' />
+                        <asp:TextBox ID="SALARYTextBox"  style="margin-bottom:0.3rem; margin-left:3.4rem;" runat="server" Text='<%#Eval("SALARY") %>' />
                         <br />
                         ADDRESS:
-                        <asp:TextBox ID="ADDRESSTEXTBOX" runat="server" Text='<%#Eval("ADDRESS") %>' />
+                        <asp:TextBox ID="ADDRESSTEXTBOX" style="margin-bottom:0.3rem; margin-left:2.6rem;" runat="server" Text='<%#Eval("ADDRESS") %>' />
                         <br />
                         <asp:LinkButton ID="InsertButton" runat="server" CausesValidation="True" onClick="InsertTeacherButton_Click" Text="Insert" />
                         &nbsp;<asp:LinkButton ID="InsertCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" />
@@ -158,7 +158,7 @@
                  <asp:FormView ID="FormView2" runat="server" DataSourceID="SqlDataSource2">
                      <InsertItemTemplate>
                          NAME:
-                         <asp:DropDownList ID="StudentDropDown" runat="server" DataSourceID="SqlDataSource2" DataTextField="NAME" DataValueField="PERSON_ID" OnSelectedIndexChanged="DropDownListSTUDENT_SelectedIndexChanged">
+                         <asp:DropDownList ID="StudentDropDown" runat="server" DataSourceID="SqlDataSource2" DataTextField="NAME" DataValueField="PERSON_ID">
                          </asp:DropDownList>
                          SALARY:
                          <asp:TextBox ID="TextBoxSalary" runat="server"></asp:TextBox>

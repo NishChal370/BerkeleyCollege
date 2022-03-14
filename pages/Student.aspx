@@ -32,7 +32,7 @@
                          </asp:TemplateField>
                          <asp:TemplateField HeaderText="CONTACT" SortExpression="CONTACT">
                              <EditItemTemplate>
-                                 <asp:TextBox ID="TextBoxCONTACT" runat="server" Text='<%# Bind("CONTACT") %>'></asp:TextBox>
+                                 <asp:TextBox ID="TextBoxCONTACT"   runat="server" Text='<%# Bind("CONTACT") %>'></asp:TextBox>
                              </EditItemTemplate>
                              <ItemTemplate>
                                  <asp:Label ID="LabelCONTACT" runat="server" Text='<%# Bind("CONTACT") %>'></asp:Label>
@@ -118,22 +118,22 @@
                      <asp:FormView ID="FormView1" runat="server" DataSourceID="SqlDataSource1">
                          <InsertItemTemplate>
                              PERSON_ID:
-                             <asp:TextBox ID="PERSON_IDTextBox" runat="server" Text='<%# Bind("PERSON_ID") %>' />
+                             <asp:TextBox ID="PERSON_IDTextBox" style="margin-bottom:0.3rem; margin-left:1.9rem;" runat="server" Text='<%# Bind("PERSON_ID") %>' />
                              <br />
                              NAME:
-                             <asp:TextBox ID="NAMETextBox" runat="server" Text='<%# Bind("NAME") %>' />
+                             <asp:TextBox ID="NAMETextBox" style="margin-bottom:0.3rem; margin-left:4.1rem;" runat="server" Text='<%# Bind("NAME") %>' />
                              <br />
                              CONTACT:
-                             <asp:TextBox ID="CONTACTTextBox" runat="server" Text='<%# Bind("CONTACT") %>' />
+                             <asp:TextBox ID="CONTACTTextBox" style="margin-bottom:0.3rem; margin-left:2.6rem;" runat="server" Text='<%# Bind("CONTACT") %>' />
                              <br />
                              DATE_OF_BIRTH:
-                             <asp:TextBox ID="DATE_OF_BIRTHTextBox" type="date" runat="server" Text='<%# Bind("DATE_OF_BIRTH") %>' />
+                             <asp:TextBox ID="DATE_OF_BIRTHTextBox" style="margin-bottom:0.3rem;" type="date" runat="server" Text='<%# Bind("DATE_OF_BIRTH") %>' />
                              <br />
                              EMAIL:
-                             <asp:TextBox ID="EMAILTextBox" runat="server" Text='<%# Bind("EMAIL") %>' />
+                             <asp:TextBox ID="EMAILTextBox" style="margin-bottom:0.3rem; margin-left:4.1rem;" runat="server" Text='<%# Bind("EMAIL") %>' />
                              <br />
                              ADDRESS:
-                             <asp:TextBox ID="ADDRESSTextBox" runat="server" Text='<%# Bind("ADDRESS") %>' />
+                             <asp:TextBox ID="ADDRESSTextBox" style="margin-bottom:0.3rem; margin-left:2.6rem;" runat="server" Text='<%# Bind("ADDRESS") %>' />
                              <br />
                              <asp:LinkButton ID="InsertButton" runat="server" CausesValidation="True" onClick="InsertButton_Click" Text="Insert" />
                              &nbsp;<asp:LinkButton ID="InsertCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" />

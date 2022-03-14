@@ -20,7 +20,7 @@
     
                     <asp:Label ID="Label1" runat="server" Text="Filter: "></asp:Label>
     
-                    <asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="SqlDataSource2" DataTextField= "NAME" DataValueField="STUDENT_ID" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged" Width="187px" OnTextChanged="DropDownList1_TextChanged" AutoPostBack="True">
+                    <asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="SqlDataSource2" DataTextField= "NAME" DataValueField="STUDENT_ID" OnSelectedIndexChanged="Student_SelectedIndexChanged" Width="187px" OnTextChanged="DropDownList1_TextChanged" AutoPostBack="True">
                         <asp:ListItem Selected="True" Value="1">---</asp:ListItem>
                     </asp:DropDownList>
 

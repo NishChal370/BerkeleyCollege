@@ -15,14 +15,6 @@ namespace BerkeleyCollege
 
         }
 
-        protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            Console.WriteLine("Here I am");
-            GridView1.Visible = false;
-            GridView2.Visible = true;
-
-        }
-
         protected void DropDownList1_TextChanged(object sender, EventArgs e)
         {
             GridView1.Visible = false;
@@ -35,6 +27,14 @@ namespace BerkeleyCollege
             GridView1.Visible = true;
             GridView2.Visible = false;
             DropDownList1.SelectedIndex = -1;
+        }
+
+        protected void Student_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Console.WriteLine("Here I am");
+            GridView1.Visible = false;
+            GridView2.Visible = true;
+
         }
     }
 }

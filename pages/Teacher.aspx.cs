@@ -139,9 +139,5 @@ namespace BerkeleyCollege
             FormView2.ChangeMode(FormViewMode.ReadOnly);
         }
 
-        protected void DropDownListSTUDENT_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }
