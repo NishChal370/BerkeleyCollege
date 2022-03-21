@@ -33,7 +33,6 @@ on person.person_id = student.student_id"></asp:SqlDataSource>
                     <asp:BoundField DataField="DEPARTMENT_NAME" HeaderText="DEPARTMENT_NAME" SortExpression="DEPARTMENT_NAME" />
                     <asp:BoundField DataField="STUDENT_ID" HeaderText="STUDENT_ID" SortExpression="STUDENT_ID" />
                     <asp:BoundField DataField="NAME" HeaderText="NAME" SortExpression="NAME" />
-                    <asp:BoundField DataField="ADDRESS" HeaderText="ADDRESS" SortExpression="ADDRESS" />
                     <asp:BoundField DataField="EMAIL" HeaderText="EMAIL" SortExpression="EMAIL" />
                     <asp:BoundField DataField="CONTACT" HeaderText="CONTACT" SortExpression="CONTACT" />
                     <asp:BoundField DataField="FEE_DATE" HeaderText="FEE_DATE" SortExpression="FEE_DATE" DataFormatString = "{0:dd-MM-yyyy}" />
@@ -55,7 +54,11 @@ on person.person_id = student.student_id"></asp:SqlDataSource>
             <asp:SqlDataSource ID="SqlDataSource1" runat="server" 
                 ConnectionString="<%$ ConnectionStrings:ConnectionString %>" 
                 ProviderName="<%$ ConnectionStrings:ConnectionString.ProviderName %>" 
-                SelectCommand="SELECT COURSEWORK.FEE.INVOICE_ID, COURSEWORK.DEPARTMENT.DEPARTMENT_NAME, COURSEWORK.STUDENT.STUDENT_ID, COURSEWORK.PERSON.&quot;NAME&quot;, COURSEWORK.ADDRESS.ADDRESS, COURSEWORK.PERSON.EMAIL, COURSEWORK.PERSON.CONTACT, COURSEWORK.FEE.FEE_DATE, COURSEWORK.FEE.AMOUNT FROM COURSEWORK.FEE INNER JOIN COURSEWORK.DEPARTMENT ON COURSEWORK.DEPARTMENT.DEPARTMENT_ID = COURSEWORK.FEE.DEPARTMENT_ID INNER JOIN COURSEWORK.STUDENT ON COURSEWORK.STUDENT.STUDENT_ID = COURSEWORK.FEE.STUDENT_ID INNER JOIN COURSEWORK.PERSON ON COURSEWORK.PERSON.PERSON_ID = COURSEWORK.STUDENT.STUDENT_ID INNER JOIN COURSEWORK.PERSON_ADDRESS ON COURSEWORK.PERSON_ADDRESS.PERSON_ID = COURSEWORK.PERSON.PERSON_ID INNER JOIN COURSEWORK.ADDRESS ON COURSEWORK.PERSON_ADDRESS.ADDRESS_ID = COURSEWORK.ADDRESS.ADDRESS_ID">
+                SelectCommand="SELECT COURSEWORK.FEE.INVOICE_ID, COURSEWORK.DEPARTMENT.DEPARTMENT_NAME, COURSEWORK.STUDENT.STUDENT_ID, COURSEWORK.PERSON.&quot;NAME&quot;, 
+COURSEWORK.PERSON.EMAIL, COURSEWORK.PERSON.CONTACT, COURSEWORK.FEE.FEE_DATE, COURSEWORK.FEE.AMOUNT FROM COURSEWORK.FEE
+INNER JOIN COURSEWORK.DEPARTMENT ON COURSEWORK.DEPARTMENT.DEPARTMENT_ID = COURSEWORK.FEE.DEPARTMENT_ID INNER JOIN COURSEWORK.STUDENT ON COURSEWORK.STUDENT.STUDENT_ID = COURSEWORK.FEE.STUDENT_ID 
+INNER JOIN COURSEWORK.PERSON ON COURSEWORK.PERSON.PERSON_ID = COURSEWORK.STUDENT.STUDENT_ID
+">
             </asp:SqlDataSource>
              <asp:GridView ID="GridView2" runat="server" width='100%' DataSourceID="SqlDataSource3" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None">
                  <AlternatingRowStyle BackColor="White" />
@@ -64,11 +67,10 @@ on person.person_id = student.student_id"></asp:SqlDataSource>
                      <asp:BoundField DataField="DEPARTMENT_NAME" HeaderText="DEPARTMENT_NAME" SortExpression="DEPARTMENT_NAME" />
                      <asp:BoundField DataField="STUDENT_ID" HeaderText="STUDENT_ID" SortExpression="STUDENT_ID" />
                      <asp:BoundField DataField="NAME" HeaderText="NAME" SortExpression="NAME" />
-                     <asp:BoundField DataField="ADDRESS" HeaderText="ADDRESS" SortExpression="ADDRESS" />
+                     
                      <asp:BoundField DataField="EMAIL" HeaderText="EMAIL" SortExpression="EMAIL" />
                      <asp:BoundField DataField="CONTACT" HeaderText="CONTACT" SortExpression="CONTACT" />
                      <asp:BoundField DataField="FEE_DATE" HeaderText="FEE_DATE" ReadOnly="True" SortExpression="FEE_DATE" DataFormatString = "{0:dd-MM-yyyy}"/>
-                     <asp:BoundField DataField="AMOUNT" HeaderText="AMOUNT" SortExpression="AMOUNT" />
                  </Columns>
                  <EditRowStyle BackColor="#2461BF" />
                  <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
@@ -81,9 +83,9 @@ on person.person_id = student.student_id"></asp:SqlDataSource>
                  <SortedDescendingCellStyle BackColor="#E9EBEF" />
                  <SortedDescendingHeaderStyle BackColor="#4870BE" />
              </asp:GridView>
-             <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" ProviderName="<%$ ConnectionStrings:ConnectionString.ProviderName %>" SelectCommand="SELECT COURSEWORK.FEE.INVOICE_ID, COURSEWORK.DEPARTMENT.DEPARTMENT_NAME, COURSEWORK.STUDENT.STUDENT_ID, COURSEWORK.PERSON.&quot;NAME&quot;, COURSEWORK.ADDRESS.ADDRESS, COURSEWORK.PERSON.EMAIL, COURSEWORK.PERSON.CONTACT, COURSEWORK.FEE.FEE_DATE, COURSEWORK.FEE.AMOUNT FROM COURSEWORK.FEE INNER JOIN COURSEWORK.DEPARTMENT ON COURSEWORK.DEPARTMENT.DEPARTMENT_ID = COURSEWORK.FEE.DEPARTMENT_ID INNER JOIN COURSEWORK.STUDENT ON COURSEWORK.STUDENT.STUDENT_ID = COURSEWORK.FEE.STUDENT_ID INNER JOIN COURSEWORK.PERSON ON COURSEWORK.PERSON.PERSON_ID = COURSEWORK.STUDENT.STUDENT_ID INNER JOIN COURSEWORK.PERSON_ADDRESS ON COURSEWORK.PERSON_ADDRESS.PERSON_ID = COURSEWORK.PERSON.PERSON_ID INNER JOIN COURSEWORK.ADDRESS ON COURSEWORK.PERSON_ADDRESS.ADDRESS_ID = COURSEWORK.ADDRESS.ADDRESS_ID
+             <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" ProviderName="<%$ ConnectionStrings:ConnectionString.ProviderName %>" SelectCommand="SELECT COURSEWORK.FEE.INVOICE_ID, COURSEWORK.DEPARTMENT.DEPARTMENT_NAME, COURSEWORK.STUDENT.STUDENT_ID, COURSEWORK.PERSON.&quot;NAME&quot;,  COURSEWORK.PERSON.EMAIL, COURSEWORK.PERSON.CONTACT, COURSEWORK.FEE.FEE_DATE, COURSEWORK.FEE.AMOUNT FROM COURSEWORK.FEE INNER JOIN COURSEWORK.DEPARTMENT ON COURSEWORK.DEPARTMENT.DEPARTMENT_ID = COURSEWORK.FEE.DEPARTMENT_ID INNER JOIN COURSEWORK.STUDENT ON COURSEWORK.STUDENT.STUDENT_ID = COURSEWORK.FEE.STUDENT_ID INNER JOIN COURSEWORK.PERSON ON COURSEWORK.PERSON.PERSON_ID = COURSEWORK.STUDENT.STUDENT_ID 
 WHERE COURSEWORK.STUDENT.STUDENT_ID = :STUDENT_ID">
-                 <SelectParameters>
+                  <SelectParameters>
                         <asp:ControlParameter ControlID="DropDownList1" Name="STUDENT_ID" PropertyName="SelectedValue" Type="String" />
                     </SelectParameters>
              </asp:SqlDataSource>

@@ -15,7 +15,16 @@
                      <asp:BoundField DataField="MODULE_CODE" HeaderText="MODULE_CODE" ReadOnly="True" SortExpression="MODULE_CODE" />
                      <asp:BoundField DataField="MODULE_NAME" HeaderText="MODULE_NAME" SortExpression="MODULE_NAME" />
                      <asp:BoundField DataField="CREDIT_HOURS" HeaderText="CREDIT_HOURS" SortExpression="CREDIT_HOURS" />
-                     <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" />
+                     <asp:TemplateField ShowHeader="False">
+                         <EditItemTemplate>
+                             <asp:LinkButton class="btn btn-primary" ID="LinkButton1" runat="server" CausesValidation="True" CommandName="Update" Text="Update"></asp:LinkButton>
+                             &nbsp;<asp:LinkButton class="btn btn-primary" ID="LinkButton2" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel"></asp:LinkButton>
+                         </EditItemTemplate>
+                         <ItemTemplate>
+                             <asp:LinkButton type="button" class="btn btn-outline-primary" ID="LinkButton1" runat="server" CausesValidation="False" CommandName="Edit" Text="Edit"></asp:LinkButton>
+                             &nbsp;<asp:LinkButton type="button" class="btn btn-outline-danger" ID="LinkButton2" runat="server" CausesValidation="False" CommandName="Delete" Text="Delete"></asp:LinkButton>
+                         </ItemTemplate>
+                     </asp:TemplateField>
                  </Columns>
                  <EditRowStyle BackColor="#2461BF" />
                  <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
@@ -62,11 +71,11 @@
                      CREDIT_HOURS:
                      <asp:TextBox style="margin-left:0.3rem; margin-bottom:0.3rem;" ID="CREDIT_HOURSTextBox" runat="server" Text='<%# Bind("CREDIT_HOURS") %>' />
                      <br />
-                     <asp:LinkButton ID="InsertButton" runat="server" CausesValidation="True" CommandName="Insert" Text="Insert" />
-                     &nbsp;<asp:LinkButton ID="InsertCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" />
+                     <asp:LinkButton type="button" class="btn btn-primary py-0 px-4" ID="InsertButton" runat="server" CausesValidation="True" CommandName="Insert" Text="Insert" />
+                     &nbsp;<asp:LinkButton type="button" class="btn btn-danger py-0 px-4" ID="InsertCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" />
                  </InsertItemTemplate>
                  <ItemTemplate>
-                     &nbsp;<asp:LinkButton ID="NewButton" runat="server" CausesValidation="False" CommandName="New" Text="New" Font-Bold="true" Font-Size="Larger"/>
+                     &nbsp;<asp:LinkButton type="button" class="btn btn-success fs-5 py-0 px-5 m-0" ID="NewButton" runat="server" CausesValidation="False" CommandName="New" Text="New" Font-Bold="true" Font-Size="Larger"/>
                  </ItemTemplate>
              </asp:FormView>
 

@@ -4,6 +4,39 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="card" style="width: 100%; background-image: linear-gradient(180deg, rgba(96, 97, 99, 0.226), rgba(224, 224, 224, 0.267)); padding-bottom:2rem;">
+
+          <%--  --%>
+
+        <div class="elementor-widget-container">
+	        <div class="banner-wrapper" style="background-image:url(https://themes.envytheme.com/ecademy/wp-content/uploads/2020/06/main-banner1.jpg);">
+                <div class="d-table">
+                    <div class="d-table-cell">
+                        <div class="container">
+                            <div class="banner-wrapper-text">
+                                
+							    <h1 style="margin-top:10rem; color:white;">Build Skills With Experts Any Time, Anywhere</h1>
+                                <p style="color:white;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+		                    </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="banner-shape11" data-speed="0.06" data-revert="true" style="transform: matrix(1, 0, 0, 1, 43.57, 20.41);">
+                    <img src="https://themes.envytheme.com/ecademy/wp-content/uploads/2020/06/banner-shape12.png" alt="shape image">
+                </div>
+                <div class="banner-shape12" data-speed="0.06" data-revert="true" style="transform: matrix(1, 0, 0, 1, 43.57, 20.41);">
+                    <img src="https://themes.envytheme.com/ecademy/wp-content/uploads/2020/06/banner-shape13.png" alt="shape image">
+                </div>
+                <div class="banner-shape13" data-speed="0.06" data-revert="true" style="transform: matrix(1, 0, 0, 1, 43.57, 20.41);">
+                    <img src="https://themes.envytheme.com/ecademy/wp-content/uploads/2020/06/banner-shape14.png" alt="shape image">
+                </div>
+            </div>
+        </div>
+
+
+          <%--  --%>
+
+
         <div class="d-flex" style="gap: 2rem;">
             <section class="d-flex" style="padding: 5% 2%; width:fit-content">
                 <section class="card-body d-flex flex-column align-items-stretch" style="gap: 5rem;">
@@ -156,5 +189,10 @@
             </section>
         </div>
     </div>
+
+  
+
+
+    
 
 </asp:Content>

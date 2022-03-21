@@ -44,7 +44,7 @@
                              <asp:TextBox ID="TextBoxDATE_OF_BIRTH" runat="server" Text='<%# Bind("DATE_OF_BIRTH") %>'></asp:TextBox>
                          </EditItemTemplate>
                          <ItemTemplate>
-                             <asp:Label ID="LabelDATE_OF_BIRTH" runat="server" Text='<%# Bind("DATE_OF_BIRTH") %>'></asp:Label>
+                             <asp:Label ID="LabelDATE_OF_BIRTH" runat="server" Text='<%# Bind("DATE_OF_BIRTH", "{0:dd-MM-yyyy}") %>'></asp:Label>
                          </ItemTemplate>
                      </asp:TemplateField>
 
@@ -86,13 +86,13 @@
                      </asp:TemplateField>
                      <asp:TemplateField ShowHeader="False">
                          <EditItemTemplate>
-                             <asp:LinkButton ID="LinkButton1" runat="server" CausesValidation="True" onClick="UpdateButton_Click" Text="Update"></asp:LinkButton>
-                             &nbsp;<asp:LinkButton ID="LinkButton2" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel"></asp:LinkButton>
+                             <asp:LinkButton class="btn btn-primary" ID="LinkButton1" runat="server" CausesValidation="True" onClick="UpdateButton_Click" Text="Update"></asp:LinkButton>
+                             &nbsp;<asp:LinkButton class="btn btn-primary" ID="LinkButton2" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel"></asp:LinkButton>
                          </EditItemTemplate>
 
                          <ItemTemplate>
-                             <asp:LinkButton ID="LinkButton1" runat="server" CausesValidation="False" CommandName="Edit" Text="Edit"></asp:LinkButton>
-                             &nbsp;<asp:LinkButton ID="LinkButton2" runat="server" CausesValidation="False" OnClick="DeleteButton_Click" Text="Delete"></asp:LinkButton>
+                             <asp:LinkButton type="button" class="btn btn-outline-primary" ID="LinkButton1" runat="server" CausesValidation="False" CommandName="Edit" Text="Edit"></asp:LinkButton>
+                             &nbsp;<asp:LinkButton type="button" class="btn btn-outline-danger" ID="LinkButton2" runat="server" CausesValidation="False" OnClick="DeleteButton_Click" Text="Delete"></asp:LinkButton>
                          </ItemTemplate>
                      </asp:TemplateField>
                    
@@ -117,7 +117,7 @@
 
 
              <section class="text-start d-flex">
-                <asp:Label ID="Label1" class="fw-bold" runat="server" Text="Assign new teacher: "></asp:Label>
+                <asp:Label ID="Label1" class="fw-bold fs-4" runat="server" Text="Assign new teacher: "></asp:Label>
                  <asp:FormView ID="FormView1" runat="server" DataSourceID="SqlDataSource1">
                     <InsertItemTemplate>
                         PERSON_ID:
@@ -141,12 +141,12 @@
                         ADDRESS:
                         <asp:TextBox ID="ADDRESSTEXTBOX" style="margin-bottom:0.3rem; margin-left:2.6rem;" runat="server" Text='<%#Eval("ADDRESS") %>' />
                         <br />
-                        <asp:LinkButton ID="InsertButton" runat="server" CausesValidation="True" onClick="InsertTeacherButton_Click" Text="Insert" />
-                        &nbsp;<asp:LinkButton ID="InsertCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" />
+                        <asp:LinkButton type="button" class="btn btn-primary py-0 px-4" ID="InsertButton" runat="server" CausesValidation="True" onClick="InsertTeacherButton_Click" Text="Insert" />
+                        &nbsp;<asp:LinkButton type="button" class="btn btn-danger py-0 px-4" ID="InsertCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" />
                     </InsertItemTemplate>
                     <ItemTemplate>
                     
-                        &nbsp;<asp:LinkButton ID="NewButton" runat="server" CausesValidation="False" CommandName="New" Text="Assign" />
+                        &nbsp;<asp:LinkButton type="button" class="btn btn-success fs-5 py-0 px-5" style="margin-left:4.3rem" ID="NewButton" runat="server" CausesValidation="False" CommandName="New" Text="Assign" />
                         <br />
                     </ItemTemplate>
                 </asp:FormView>
@@ -154,7 +154,7 @@
 
 
              <section class="text-start d-flex">
-                 <asp:Label ID="Label2" runat="server" class="text-start fw-bold" Text="Assign student as teacher: "></asp:Label>
+                 <asp:Label ID="Label2"  runat="server" class="text-start fw-bold fs-4" Text="Assign student as teacher: "></asp:Label>
                  <asp:FormView ID="FormView2" runat="server" DataSourceID="SqlDataSource2">
                      <InsertItemTemplate>
                          NAME:
@@ -163,11 +163,11 @@
                          SALARY:
                          <asp:TextBox ID="TextBoxSalary" runat="server"></asp:TextBox>
                          <br />
-                         <asp:LinkButton ID="InsertButton" runat="server" CausesValidation="True" onClick="AddStudentAsTeacher_Click" Text="Insert" />
-                         &nbsp;<asp:LinkButton ID="InsertCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" />
+                         <asp:LinkButton type="button" class="btn btn-primary py-0 px-4" ID="InsertButton" runat="server" CausesValidation="True" onClick="AddStudentAsTeacher_Click" Text="Insert" />
+                         &nbsp;<asp:LinkButton type="button" class="btn btn-danger py-0 px-4" ID="InsertCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" />
                      </InsertItemTemplate>
                      <ItemTemplate>
-                         &nbsp;<asp:LinkButton ID="NewButton" runat="server" CausesValidation="False" CommandName="New" Text="Assign" />
+                         &nbsp;<asp:LinkButton type="button" class="btn btn-success fs-5 py-0 px-5 m-0" ID="NewButton" runat="server" CausesValidation="False" CommandName="New" Text="Assign" />
                      </ItemTemplate>
                  </asp:FormView>
                  <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" 
