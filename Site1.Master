@@ -44,6 +44,7 @@
                                     <a class="nav-link dropdown-toggle" href="Student.aspx" id="navbarDropdownStundetLink" role="button" data-bs-toggle="dropdown" aria-expanded="false"></a>
                                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownStundetLink">
                                         <li><a class="dropdown-item" href="Student.aspx">Student Info</a></li>
+                                        <li><a class="dropdown-item" href="Address.aspx">Address Info</a></li>
                                         <li><a class="dropdown-item" href="StudentFinance.aspx">Fee Info</a></li>
                                         <li><a class="dropdown-item" href="StudentModule.aspx">Student Module</a></li>
                                         <li><a class="dropdown-item" href="StudentAttendance.aspx">Attendence Info</a></li>

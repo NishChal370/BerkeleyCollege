@@ -1,6 +1,20 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="Home.aspx.cs" Inherits="BerkeleyCollege.WebForm4" %>
 <%@ Register assembly="System.Web.DataVisualization, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" namespace="System.Web.UI.DataVisualization.Charting" tagprefix="asp" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <style type="text/css">
+        .auto-style1 {
+            --bs-table-bg: #e2e3e5;
+            --bs-table-striped-bg: #d7d8da;
+            --bs-table-striped-color: #000;
+            --bs-table-active-bg: #cbccce;
+            --bs-table-active-color: #000;
+            --bs-table-hover-bg: #d1d2d4;
+            --bs-table-hover-color: #000;
+            color: #000;
+            border-color: #cbccce;
+            width: 10px;
+        }
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="card" style="width: 100%; background-image: linear-gradient(180deg, rgba(96, 97, 99, 0.226), rgba(224, 224, 224, 0.267)); padding-bottom:2rem;">
@@ -97,12 +111,12 @@
                       <div class="card-body text-center ">
                         <a class="card-title fw-bolder" href="Department.aspx" style="font-size: 2rem; color: white; border: none">Department Info</a>
                       </div>
-                    </div>
+                    </div>       
                 </section>
           </section>
 
           <section class="d-flex flex-column gap-5" style="padding-top: 5rem">
-                <div class="d-flex flex-column justify-content-center text-center shadow-lg bg-white">
+                      <div class="d-flex flex-column justify-content-center text-center shadow-lg bg-white">
                     <asp:Chart ID="Chart1" runat="server" DataSourceID="SqlDataSource1" Height="329px" Width="519px">
                         <Series>
                             <asp:Series Name="Student" XValueMember="MODULE_NAME" YValueMembers="Total Student" Legend="Legend1">
